@@ -1,21 +1,17 @@
 import React from "react";
-import { useRouter } from "expo-router";
-import { ActivityIndicator, FlatList, Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, View } from "react-native";
 
-import SearchBar from "@/components/SearchBar";
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
 
-import movies from "@/services/movies.json";
-import MovieCard from "@/components/MovieCard";
+import GenreMovies from "@/components/GenreMovies";
 
 export default function Index() {
-  const router = useRouter();
     
 
   return (
     <View className="flex-1 bg-primary">
-        <Image source={images.bg} className="absolute w-full z-0" resizeMode="cover" /> 
+        <Image source={images.bg} className="flex-1 absolute w-full z-0" resizeMode="cover" /> 
 
         <ScrollView 
           className="flex-1 px-5"
@@ -25,32 +21,32 @@ export default function Index() {
           <Image source={icons.logo} className="w-15 h-12 mt-20 mb-5 mx-auto" />
 
           <View className="flex-1 mt-5">
-              <SearchBar 
-                onPress={() => router.push("/search")}
-                placeholder="Search movies"
-              />
 
-              <>
-                <Text className="text-lg text-white font-bold mt-5 mb-3">Latest Movies</Text>
-                <FlatList
-                  data={movies}
-                  renderItem={({item}) => (
-                    <MovieCard  {...item} />
-                  )}
-                  keyExtractor={(item) => item.imdbID}
-                  numColumns={3}
-                  columnWrapperStyle={{ 
-                    justifyContent: "flex-start",
-                    gap: 15,
-                    paddingRight: 0,
-                    marginBottom: 1,
-                  }}
-                  scrollEnabled={false}
-                />
-              </>
+              <View className="flex-1 mb-1">
+                <GenreMovies Title="Action Movies" Genre="Action" />                
+              </View>
+
+              <View className="flex-1 mb-1">
+                <GenreMovies Title="Drama Movies" Genre="Drama" />                
+              </View>
+
+              <View className="flex-1 mb-1">
+                <GenreMovies Title="Adventure Movies" Genre="Adventure" />                
+              </View>
+
+              <View className="flex-1 mb-1">
+                <GenreMovies Title="Fantasy Movies" Genre="Fantasy" />                
+              </View>
+
+              <View className="flex-1 mb-1">
+                <GenreMovies Title="Sci-Fi Movies" Genre="Sci-Fi" />                
+              </View>
+
+              <View className="flex-1 mb-28">
+                <GenreMovies Title="Crime Movies" Genre="Crime" />                
+              </View>
+
           </View>
-
-          
         </ScrollView>
     </View>
   );
