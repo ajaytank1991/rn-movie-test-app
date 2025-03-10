@@ -48,8 +48,8 @@ const MovieDetails = () => {
           <Text className='text-white font-bold text-3xl'>{movie?.Title}</Text>
 
           <View className='flex-row items-center gap-x-1 mt-2'>
-            <Text className='text-light-100 text-sm'>{movie?.Released}</Text>
-            <Text className='text-light-100 text-sm'>{movie?.Rated}</Text>
+            <Text className='text-light-100 text-sm'>{movie?.Released} •</Text>
+            <Text className='text-light-100 text-sm'>{movie?.Rated} •</Text>
             <Text className='text-light-100 text-sm'>{movie?.Runtime}</Text>
           </View>
 
